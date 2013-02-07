@@ -122,12 +122,95 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
     line-height: 12px;
     vertical-align: bottom;
   }
+  .box {
+    font-size: 30px;
+/*    letter-spacing: -10px;*/
+    color: #111;
+    vertical-align: middle;
+    margin-right: -10px;
+    text-shadow: 1px 1px 0px #111, -1px -1px 0px #111,-1px 1px 0px #111,1px -1px 0px #111;
+  }
+  .blank {
+    text-shadow: 1px 1px 0px #111, -1px -1px 0px #111,-1px 1px 0px #111,1px -1px 0px #111;
+    color: white;
+    opacity: .1;
+  }
+  .rank_10 {
+    opacity: .1;
+  }
+  .rank_20 {
+    opacity: .2;
+  }
+  .rank_30 {
+    opacity: .3;
+  }
+  .rank_40 {
+    opacity: .4;
+  }
+  .rank_50 {
+    opacity: .5;
+  }
+  .rank_60 {
+    opacity: .6;
+  }
+  .rank_70 {
+    opacity: .7;
+  }
+  .rank_80 {
+    opacity: .8;
+  }
+  .rank_90 {
+    opacity: .9;
+  }
+  .rank_100 {
+    opacity: 1;
+  }
+  .week {
+    margin-bottom: -22px;
+  }
   </style>
 </head>
 
 <body style="font-family: monospace;">
   <h2>On Time</h2>
-  <span class="bigger">&#x25A0;</span><span class="bigger" style="opacity:.5">&#x25A0;</span><span class="bigger" style="opacity:.8; vertical-align:bottom">&#x25A0;</span> 
+  <div class="week">
+    <span class="box rank_40">&#x25A0;</span>
+    <span class="box rank_50">&#x25A0;</span>
+    <span class="box blank">&#x25A0;</span>
+    <span class="box blank">&#x25A0;</span>
+    <span class="box rank_80">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_20">&#x25A0;</span>
+  </div>
+  <div class="week">
+    <span class="box rank_70">&#x25A0;</span>
+    <span class="box rank_80">&#x25A0;</span>
+    <span class="box rank_60">&#x25A0;</span>
+    <span class="box rank_40">&#x25A0;</span>
+    <span class="box blank">&#x25A0;</span>
+    <span class="box rank_10">&#x25A0;</span>
+    <span class="box rank_20">&#x25A0;</span>
+  </div>
+  <div class="week">
+    <span class="box rank_60">&#x25A0;</span>
+    <span class="box rank_50">&#x25A0;</span>
+    <span class="box rank_40">&#x25A0;</span>
+    <span class="box rank_40">&#x25A0;</span>
+    <span class="box rank_30">&#x25A0;</span>
+    <span class="box rank_10">&#x25A0;</span>
+    <span class="box rank_20">&#x25A0;</span>
+  </div>
+  <div class="week">
+    <span class="box rank_40">&#x25A0;</span>
+    <span class="box rank_50">&#x25A0;</span>
+    <span class="box rank_60">&#x25A0;</span>
+    <span class="box rank_70">&#x25A0;</span>
+    <span class="box rank_80">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_100">&#x25A0;</span>
+  </div>
+  <br/>
+
   <a href="javascript:(function(e,a,g,h,f,c,b,d){if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){c=a.createElement('script');c.type='text/javascript';c.src='//ajax.googleapis.com/ajax/libs/jquery/'+g+'/jquery.min.js';c.onload=c.onreadystatechange=function(){if(!b&&(!(d=this.readyState)||d=='loaded'||d=='complete')){h((f=e.jQuery).noConflict(1),b=1);f(c).remove()}};a.documentElement.childNodes[0].appendChild(c)}})(window,document,'1.9.0',function($,L){var project = window.prompt('Project Name','');var eventType = window.confirm('Ok for start, Cancel for stop.'');if (eventType == true) {eventType = 'start';} else if (eventType == false) {eventType = 'stop';}if (project != null && project != null) {$.ajax({type: 'POST',url: 'http://crisnoble.com/qs/ontime/nodes/timeEntry.php',data: {project: project, startstop: eventType}}).done(function(){alert('finished');});}});">Drag me, le bookmarklet.</a>
   <br/>  
   Ideas: (0)Make Bookmarklet work (1) Make each entry editable and deleteable, (2) create calender heatmap
