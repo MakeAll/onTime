@@ -51,6 +51,7 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   $(document).ready(function(){
     $('#entries').hide();
     $('#moreDates').hide();
+    $('.dateTotal').hide();
     $('#entryToggle').click(function(){
       $('#entries').toggle();
     });
@@ -76,7 +77,41 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
         console.log('less?');      
       }
     });
+    $('.dateDetailToggle:first').click();
+    $('.box').hover(function(){
+      discoStop();
+    },function(){
+      discoStart();
+    });
+    randomize();
   });
+  function disco(){
+    $('.box').each(function(){
+      var random = Math.round(Math.random()*100)/1000;
+      var flip = Math.random();
+      var current = $(this).css('opacity');
+      if(flip > .49) {
+        var newOpacity = current + random;
+      } else {
+        var newOpacity = current - random/2;
+      }
+      $(this).animate({'opacity':newOpacity},300);
+    });
+  }
+  function randomize() {
+    $('.box').each(function(){
+      var random = Math.round(Math.random()*100)/100;
+      $(this).animate({'opacity':random});
+    });
+    discoStart();
+  }
+  function discoStart(){
+    discoParty = setInterval(disco, 300);
+    console.log('lets party');
+  }
+  function discoStop(){
+    clearInterval(discoParty);
+  }
   </script>
   <style>
   #entryToggle, #rollupToggle, #moreDatesToggle {
@@ -89,6 +124,9 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
     margin-top: .3em;
   }
   h3{
+    margin-bottom: 0;
+  }
+  h2 {
     margin-bottom: 0;
   }
   .icon {
@@ -168,59 +206,338 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   .week {
     margin-bottom: -22px;
   }
+  .bullet {
+    font-size: 10px;
+    margin-right: -4px;
+    margin-left: 1px;
+    opacity: .2;
+  }
   </style>
 </head>
 
 <body style="font-family: monospace;">
   <h2>On Time</h2>
   <div class="week">
-    <span class="box rank_40">&#x25A0;</span>
-    <span class="box rank_50">&#x25A0;</span>
-    <span class="box blank">&#x25A0;</span>
-    <span class="box blank">&#x25A0;</span>
-    <span class="box rank_80">&#x25A0;</span>
     <span class="box rank_90">&#x25A0;</span>
-    <span class="box rank_20">&#x25A0;</span>
-  </div>
-  <div class="week">
-    <span class="box rank_70">&#x25A0;</span>
-    <span class="box rank_80">&#x25A0;</span>
-    <span class="box rank_60">&#x25A0;</span>
-    <span class="box rank_40">&#x25A0;</span>
-    <span class="box blank">&#x25A0;</span>
-    <span class="box rank_10">&#x25A0;</span>
-    <span class="box rank_20">&#x25A0;</span>
-  </div>
-  <div class="week">
-    <span class="box rank_60">&#x25A0;</span>
-    <span class="box rank_50">&#x25A0;</span>
-    <span class="box rank_40">&#x25A0;</span>
-    <span class="box rank_40">&#x25A0;</span>
-    <span class="box rank_30">&#x25A0;</span>
-    <span class="box rank_10">&#x25A0;</span>
-    <span class="box rank_20">&#x25A0;</span>
-  </div>
-  <div class="week">
-    <span class="box rank_40">&#x25A0;</span>
-    <span class="box rank_50">&#x25A0;</span>
-    <span class="box rank_60">&#x25A0;</span>
-    <span class="box rank_70">&#x25A0;</span>
-    <span class="box rank_80">&#x25A0;</span>
     <span class="box rank_90">&#x25A0;</span>
-    <span class="box rank_100">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
   </div>
-  <br/>
+  <div class="week">
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+  </div>
+  <div class="week">
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+  </div>
+  <div class="week">
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+  </div>
+  <div class="week">
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+  </div>
+  <div class="week">
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+  </div>
+  <div class="week">
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+    <span class="box rank_90">&#x25A0;</span>
+  </div>
 
+  <br/>
+  <!--
   <a href="javascript:(function(e,a,g,h,f,c,b,d){if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){c=a.createElement('script');c.type='text/javascript';c.src='//ajax.googleapis.com/ajax/libs/jquery/'+g+'/jquery.min.js';c.onload=c.onreadystatechange=function(){if(!b&&(!(d=this.readyState)||d=='loaded'||d=='complete')){h((f=e.jQuery).noConflict(1),b=1);f(c).remove()}};a.documentElement.childNodes[0].appendChild(c)}})(window,document,'1.9.0',function($,L){var project = window.prompt('Project Name','');var eventType = window.confirm('Ok for start, Cancel for stop.'');if (eventType == true) {eventType = 'start';} else if (eventType == false) {eventType = 'stop';}if (project != null && project != null) {$.ajax({type: 'POST',url: 'http://crisnoble.com/qs/ontime/nodes/timeEntry.php',data: {project: project, startstop: eventType}}).done(function(){alert('finished');});}});">Drag me, le bookmarklet.</a>
   <br/>  
-  Ideas: (0)Make Bookmarklet work (1) Make each entry editable and deleteable, (2) create calender heatmap
+  Ideas: (0)Make Bookmarklet work (1) Make each entry editable and deleteable, (2) create calender heatmap (3) color per project
   <br>
   <span class="controls">
     <span class="tools">&#9874;</span>
     <span class="info">&#8505;</span>
     <span class="more">&#8230;</span>
     <span class="split icon">&#8916;</span>&#x29BB;&#x25B6;&#x2B21;&#x2B1C;⊗
-  </span>
+  </span>-->
   <h3>Dates</h3>
   <?php
   //loop thru dates and spit them out
@@ -230,13 +547,15 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
       if ($i == 7){
         print '<h4 id="moreDatesToggle">Show More Dates...</h4><div id="moreDates">';
       }
-      print '<h4><span class="icon more dateDetailToggle">+</span> <i>'.$dow.$date.'</i></h4>';
-      print '<span class="dateDetails">&nbsp;&nbsp;------___---------_&#9679;&#9679;&#9679;_&#9675;&#9675;&#9675;&#9675;&#9675;--------------------------------------------------------------------<br/></span>';
+      print '<h4><span class="icon more dateDetailToggle">+</span>&nbsp;'.$dow.$date.'</h4>';
+      //print '<span class="dateDetails">&nbsp;&nbsp;------___---------_&#9679;&#9679;&#9679;_&#9675;&#9675;&#9675;&#9675;&#9675;--------------------------------------------------------------------<br/></span>';
+      print '<div class="dateDetails">';
       $subQuery = "SELECT DISTINCT `project` FROM `angelaj2_qs`.`tt` WHERE `tt`.`date` = '$date' ORDER BY `tt`.`time` ASC ";
       $projectsOnDate = mysql_query($subQuery);
+      $dateTotal = 0;
       for ($j = 0; $j < mysql_numrows($projectsOnDate); $j++){
         $projectOnDate = mysql_result($projectsOnDate, $j, "project");
-        print '&nbsp;&nbsp;'.$projectOnDate.': ';
+        print '&nbsp;&nbsp;<span class="bullet">&#11044;</span>&nbsp;&nbsp;'.$projectOnDate.': ';
         $subQuery2 = "SELECT * FROM `angelaj2_qs`.`tt` WHERE `tt`.`project` = '$projectOnDate' AND `tt`.`date` = '$date' ORDER BY `tt`.`time` ASC";
         $entriesByProjectOnDate = mysql_query($subQuery2);
         $numEntries = mysql_numrows($entriesByProjectOnDate);
@@ -268,11 +587,15 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
           }
         }
         print $totalHours.' hrs';
+        $dateTotal += $totalHours;
         if ($active) {
           print ' <span class="active icon">&#9737;</span>';
         }
         print "<br/>";
       }
+      print '</div>';
+      print '<span class="dateTotal" data-date="'.$date.'" date-datetotal="'.$dateTotal.'">'.$dateTotal.'</span>';
+      //print '</div>';
       if($i == mysql_numrows($dates) - 1){
         print "</div>";
       }
