@@ -88,6 +88,17 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
       $(this).css('opacity',1);
     });
     randomize();
+
+    $('.stop').click(function(){
+      var project = $(this).attr('data-project');
+      startStopProject(project, 'stop');
+    });
+
+    $('.start').click(function(){
+      var project = $(this).attr('data-project');
+      startStopProject(project, 'start');
+    });
+
   });
   function disco(){
     $('.box').each(function(){
@@ -119,6 +130,23 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
     disco();
     //clearInterval(discoParty);
   }
+
+  function refreshPage(){
+    window.location.href = window.location.href;
+  }
+
+  function startStopProject(project, eventType){
+    $.ajax({
+      type: "POST",
+      url: "http://crisnoble.com/qs/ontime/nodes/timeEntry.php",
+      data: {project: project, startstop: eventType}
+    })
+    .done(function(){
+        refreshPage();
+    });
+
+  }
+
   </script>
   <style>
   #entryToggle, #rollupToggle, #moreDatesToggle {
@@ -140,11 +168,12 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
     color: darkred;
     cursor: pointer;
   }
-  .active {
+  .stop {
     line-height: 12px;
     display: inline-block;
-    font-size: 24px;
-    vertical-align: bottom;
+    font-size: 30px;
+    margin-left: -5px;
+/*    vertical-align: bottom;*/
   }
   .tools {
     line-height: 12px;
@@ -259,7 +288,7 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   </div>
 
   <br/>
-  <!--
+  
   <a href="javascript:(function(e,a,g,h,f,c,b,d){if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){c=a.createElement('script');c.type='text/javascript';c.src='//ajax.googleapis.com/ajax/libs/jquery/'+g+'/jquery.min.js';c.onload=c.onreadystatechange=function(){if(!b&&(!(d=this.readyState)||d=='loaded'||d=='complete')){h((f=e.jQuery).noConflict(1),b=1);f(c).remove()}};a.documentElement.childNodes[0].appendChild(c)}})(window,document,'1.9.0',function($,L){var project = window.prompt('Project Name','');var eventType = window.confirm('Ok for start, Cancel for stop.'');if (eventType == true) {eventType = 'start';} else if (eventType == false) {eventType = 'stop';}if (project != null && project != null) {$.ajax({type: 'POST',url: 'http://crisnoble.com/qs/ontime/nodes/timeEntry.php',data: {project: project, startstop: eventType}}).done(function(){alert('finished');});}});">Drag me, le bookmarklet.</a>
   <br/>  
   Ideas: (0)Make Bookmarklet work (1) Make each entry editable and deleteable, (2) create calender heatmap (3) color per project
@@ -269,7 +298,7 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
     <span class="info">&#8505;</span>
     <span class="more">&#8230;</span>
     <span class="split icon">&#8916;</span>&#x29BB;&#x25B6;&#x2B21;&#x2B1C;⊗
-  </span>-->
+  </span>
   <h3>Dates</h3>
   <?php
   //loop thru dates and spit them out
@@ -321,7 +350,9 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
         print $totalHours.' hrs';
         $dateTotal += $totalHours;
         if ($active) {
-          print ' <span class="active icon">&#9737;</span>';
+          print ' <span class="stop icon" data-project="'.$projectOnDate.'">&#9632;</span>';
+        } else {
+          print ' <span class="start icon" data-project="'.$projectOnDate.'">▶</span>';
         }
         print "<br/>";
       }
