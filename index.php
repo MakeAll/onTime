@@ -27,12 +27,12 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
 }
 
 ?>
-<!doctype HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
 
-  <title>Quantified Self</title>
+  <title>On Time</title>
 
   <meta name="description" content="This can be a longer description of what you are doing." />
   <meta name="keywords" content="fun, short, sometimes two, word descriptions" />
@@ -44,14 +44,16 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
 <!--   <link rel="stylesheet" href="css/reset.css">
   <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css"> -->
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+  <script src="js/jquery-1.9.1.min.js"></script>
   <!-- <script src="js/custom.js"></script>-->
   <script>
   $(document).ready(function(){
     $('#entries').hide();
     $('#moreDates').hide();
     $('.dateTotal').hide();
+
+    sortProjectsByTotals();
+
     $('#entryToggle').click(function(){
       $('#entries').toggle();
     });
@@ -69,13 +71,11 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
         $(this).text('-');
         $(this).removeClass('more');
         $(this).addClass('less');
-        console.log('moar?');
       } else {
         $(this).parent().next().toggle();
         $(this).text('+');
         $(this).addClass('more');
-        $(this).removeClass('less');
-        console.log('less?');      
+        $(this).removeClass('less');    
       }
     });
     $('.dateDetailToggle:first').click();
@@ -145,6 +145,19 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
         refreshPage();
     });
 
+  }
+
+  function sortProjectsByTotals() {
+    var totals = [];
+    $('.projectRollup').each(function(){
+      var number = $(this).data('projecttotal');
+      totals.push(parseFloat(number));
+    });
+    totals = totals.sort(function(a,b){return b-a;});
+    console.log(totals);
+    for (var i=0; i < totals.length; i++){
+      $('[data-projecttotal="'+totals[i]+'"]').appendTo('#rollups');
+    }
   }
 
   </script>
@@ -288,7 +301,7 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   </div>
 
   <br/>
-  
+  <!--
   <a href="javascript:(function(e,a,g,h,f,c,b,d){if(!(f=e.jQuery)||g>f.fn.jquery||h(f)){c=a.createElement('script');c.type='text/javascript';c.src='//ajax.googleapis.com/ajax/libs/jquery/'+g+'/jquery.min.js';c.onload=c.onreadystatechange=function(){if(!b&&(!(d=this.readyState)||d=='loaded'||d=='complete')){h((f=e.jQuery).noConflict(1),b=1);f(c).remove()}};a.documentElement.childNodes[0].appendChild(c)}})(window,document,'1.9.0',function($,L){var project = window.prompt('Project Name','');var eventType = window.confirm('Ok for start, Cancel for stop.'');if (eventType == true) {eventType = 'start';} else if (eventType == false) {eventType = 'stop';}if (project != null && project != null) {$.ajax({type: 'POST',url: 'http://crisnoble.com/qs/ontime/nodes/timeEntry.php',data: {project: project, startstop: eventType}}).done(function(){alert('finished');});}});">Drag me, le bookmarklet.</a>
   <br/>  
   Ideas: (0)Make Bookmarklet work (1) Make each entry editable and deleteable, (2) create calender heatmap (3) color per project
@@ -298,7 +311,7 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
     <span class="info">&#8505;</span>
     <span class="more">&#8230;</span>
     <span class="split icon">&#8916;</span>&#x29BB;&#x25B6;&#x2B21;&#x2B1C;⊗
-  </span>
+  </span>-->
   <h3>Dates</h3>
   <?php
   //loop thru dates and spit them out
@@ -351,8 +364,6 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
         $dateTotal += $totalHours;
         if ($active) {
           print ' <span class="stop icon" data-project="'.$projectOnDate.'">&#9632;</span>';
-        } else {
-          print ' <span class="start icon" data-project="'.$projectOnDate.'">▶</span>';
         }
         print "<br/>";
       }
@@ -370,8 +381,10 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   //loop thru projects and spit them out
     for ($i = 0; $i < mysql_numrows($projects); $i++){
       $project = mysql_result($projects, $i, "project");
-      print $project.": ".$projectTotal[$project];
-      print '<br/>';
+      print '<div class="projectRollup" data-projecttotal="'.$projectTotal[$project].'">';
+      print '<span class="start icon" data-project="'.$project.'">▶  </span>';
+      print $project.": ".$projectTotal[$project]." hrs";
+      print '</div>';
     }
   ?>
   </div>
@@ -394,6 +407,9 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
     }
   ?>
   </div>
+  <br/>  
+  Ideas: (0)Make Bookmarklet work (1) Make each entry editable and deleteable, (2) create calender heatmap (3) color per project, (5) Start new project from page
+  <br>
 
 </body>
 </html>
