@@ -41,9 +41,8 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   
   <link rel="shortcut icon" href="http://crisnoble.com/favicon.ico" type="image/x-icon" /> 
 
-<!--   <link rel="stylesheet" href="css/reset.css">
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/style.css"> -->
+<!--   <link rel="stylesheet" href="css/reset.css"> -->
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery-1.9.1.min.js"></script>
   <!-- <script src="js/custom.js"></script>-->
   <script>
@@ -103,14 +102,8 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   function disco(){
     $('.box').each(function(){
       var random = Math.round(Math.random()*100)/1000;
-      //var flip = Math.random();
       var current = $(this).css('opacity');
       newOpacity = random*10;
-      // if(flip > .49) {
-      //   var newOpacity = current + random;
-      // } else {
-      //   var newOpacity = current - random/2;
-      // }
       $(this).animate({'opacity':newOpacity},40);
     });
   }
@@ -119,16 +112,13 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
       var random = Math.round(Math.random()*100)/100;
       $(this).animate({'opacity':random},100);
     });
-    //discoStart();
   }
   function discoStart(){
     disco();
-    //discoParty = setInterval(disco, 300);
     console.log('lets party');
   }
   function discoStop(){
     disco();
-    //clearInterval(discoParty);
   }
 
   function refreshPage(){
@@ -161,107 +151,6 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   }
 
   </script>
-  <style>
-  #entryToggle, #rollupToggle, #moreDatesToggle {
-    color: purple;
-    cursor: pointer;
-  }
-  h4 {
-    font-weight: 600;
-    margin-bottom: 0;
-    margin-top: .3em;
-  }
-  h3{
-    margin-bottom: 0;
-  }
-  h2 {
-    margin-bottom: 0;
-  }
-  .icon {
-    color: darkred;
-    cursor: pointer;
-  }
-  .stop {
-    line-height: 12px;
-    display: inline-block;
-    font-size: 30px;
-    margin-left: -5px;
-/*    vertical-align: bottom;*/
-  }
-  .tools {
-    line-height: 12px;
-    font-size: 24px;
-  }
-  .info {
-    vertical-align: bottom;
-  }
-  .split {
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-    position: absolute;
-
-  }
-  .bigger {
-    font-size: 20px;
-    line-height: 12px;
-    vertical-align: bottom;
-  }
-  .box {
-    font-size: 30px;
-    cursor: crosshair;
-    color: #111;
-    vertical-align: middle;
-    margin-right: -10px;
-    text-shadow: 1px 1px 0px #111, -1px -1px 0px #111,-1px 1px 0px #111,1px -1px 0px #111;
-  }
-  .blank {
-    text-shadow: 1px 1px 0px #111, -1px -1px 0px #111,-1px 1px 0px #111,1px -1px 0px #111;
-    color: white;
-    opacity: .1;
-  }
-  .rank_10 {
-    opacity: .1;
-  }
-  .rank_20 {
-    opacity: .2;
-  }
-  .rank_30 {
-    opacity: .3;
-  }
-  .rank_40 {
-    opacity: .4;
-  }
-  .rank_50 {
-    opacity: .5;
-  }
-  .rank_60 {
-    opacity: .6;
-  }
-  .rank_70 {
-    opacity: .7;
-  }
-  .rank_80 {
-    opacity: .8;
-  }
-  .rank_90 {
-    opacity: .9;
-  }
-  .rank_100 {
-    opacity: 1;
-  }
-  .week {
-    margin-bottom: -22px;
-  }
-  .bullet {
-    font-size: 10px;
-    margin-right: -4px;
-    margin-left: 1px;
-    opacity: .2;
-  }
-  </style>
 </head>
 
 <body style="font-family: monospace;">
