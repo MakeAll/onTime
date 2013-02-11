@@ -1,7 +1,8 @@
 <?php
 
-//hook in
-$link = mysql_connect("localhost","angelaj2_qsPost","pooppoo1");
+INCLUDE "nodes/auth.php";
+INCLUDE "nodes/db_connection.php";
+
 if (!$link) {
   print "Looks like something is broken<!--Propably in the db connection-->";
   die();
