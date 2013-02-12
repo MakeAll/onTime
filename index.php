@@ -154,7 +154,7 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   </script>
 </head>
 
-<body style="font-family: monospace;">
+<body>
   <h2>On Time</h2>
   <div class="week">
     <span class="box rank_90">&#x25A0;</span>
@@ -211,7 +211,7 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
       if ($i == 7){
         print '<h4 id="moreDatesToggle">Show More Dates...</h4><div id="moreDates">';
       }
-      print '<h4><span class="icon more dateDetailToggle">+</span>&nbsp;'.$dow.$date.'</h4>';
+      print '<h4><span class="icon more dateDetailToggle bigger">+</span>&nbsp;'.$dow.$date.'</h4>';
       //print '<span class="dateDetails">&nbsp;&nbsp;------___---------_&#9679;&#9679;&#9679;_&#9675;&#9675;&#9675;&#9675;&#9675;--------------------------------------------------------------------<br/></span>';
       print '<div class="dateDetails">';
       $subQuery = "SELECT DISTINCT `project` FROM `angelaj2_qs`.`tt` WHERE `tt`.`date` = '$date' ORDER BY `tt`.`time` ASC ";
