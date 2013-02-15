@@ -1,2 +1,3 @@
 nodes/db_connection.php
 nodes/auth.php
+error_log

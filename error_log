@@ -92,3 +92,7 @@
 [09-Feb-2013 09:57:21] PHP Warning:  mysql_result() [<a href='function.mysql-result'>function.mysql-result</a>]: Unable to jump to row -1 on MySQL result index 6 in /home2/angelaj2/public_html/crisnoble/qs/ontime/index.php on line 341
 [09-Feb-2013 10:04:29] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home2/angelaj2/public_html/crisnoble/qs/ontime/index.php on line 389
 [09-Feb-2013 10:04:29] PHP Parse error:  syntax error, unexpected '<' in /home2/angelaj2/public_html/crisnoble/qs/ontime/index.php on line 389
+[15-Feb-2013 07:45:24] PHP Warning:  mysql_result() [<a href='function.mysql-result'>function.mysql-result</a>]: Unable to jump to row -1 on MySQL result index 8 in /home2/angelaj2/public_html/crisnoble/qs/ontime/index.php on line 246
+[15-Feb-2013 07:45:59] PHP Warning:  mysql_result() [<a href='function.mysql-result'>function.mysql-result</a>]: Unable to jump to row -1 on MySQL result index 8 in /home2/angelaj2/public_html/crisnoble/qs/ontime/index.php on line 246
+[15-Feb-2013 07:46:26] PHP Warning:  mysql_result() [<a href='function.mysql-result'>function.mysql-result</a>]: Unable to jump to row -1 on MySQL result index 8 in /home2/angelaj2/public_html/crisnoble/qs/ontime/index.php on line 246
+[15-Feb-2013 07:46:29] PHP Warning:  mysql_result() [<a href='function.mysql-result'>function.mysql-result</a>]: Unable to jump to row -1 on MySQL result index 8 in /home2/angelaj2/public_html/crisnoble/qs/ontime/index.php on line 246
