@@ -301,6 +301,14 @@ for ($i = 0; $i < mysql_numrows($projects); $i++){
   Ideas: (0)Make Bookmarklet work (1) Make each entry editable and deleteable, (2) create calender heatmap (3) color per project, (5) Start new project from page
   <br>
 
+  <form method="post" action="nodes/timeEntry.php">
+    <input name="project" type="text" placeholder="project" />
+    <input name="date" type="text" placeholder="yyyy-mm-dd" />
+    <input name="time" type="text" placeholder="hh:mm" />
+    <input name="startstop" type="text" placeholder="start or stop?" />
+    <input type="submit"/>
+  </form>
+
 </body>
 </html>
 <?php
